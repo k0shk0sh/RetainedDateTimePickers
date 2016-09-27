@@ -1,14 +1,20 @@
 # RetainedDateTimePickers
-Android Library to help you with your date & time pickers while retaining the instance of the pickers on orientation change. — Edit
+Android Library to help you with your date & time pickers while retaining the instance of the pickers on orientation change.
 
 # Installation
 
 #### Gradle
 ```groovy
-    compile 'coming soon'
+   'coming soon'
 ```
 
 #### Maven
+```xml
+    <coming soon/>
+```
+
+Screenshots 
+======
 ```xml
     <coming soon/>
 ```
@@ -20,6 +26,11 @@ Your `Activity` must implement `DatePickerCallback` or and `TimePickerCallback` 
 
 
 > **To understand more how the library works, please take a look at the sample app.**
+
+TODO
+=====
+
+- To supports `ParentFragment` (very soon).
 
 # Why this library?
 
