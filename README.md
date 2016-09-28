@@ -68,16 +68,16 @@ Screenshots
 
 - **Pickers Portrait Mode**
 <br/>
-<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/date_picker_portrait.png" style="max-width:350px; max-height:350px;"/>
-<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/time_picker_portrait.png" style="max-width:350px; max-height:350px;"/>
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/date_picker_portrait.png" />
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/time_picker_portrait.png" />
 - **Pickers Landscape Mode**
 <br/>
-<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/date_picker_land.png" style="max-width:350px; max-height:350px;"/>
-<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/time_picker_land.png" style="max-width:350px; max-height:350px;"/>
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/date_picker_land.png" />
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/time_picker_land.png" />
 - **Pickers Custom Themes via Styles**
 <br/>
-<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/custom_theme_date.png" style="max-width:350px; max-height:350px;"/>
-<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/custom_theme_time.png" style="max-width:350px; max-height:350px;"/>
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/custom_theme_date.png" />
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/custom_theme_time.png" />
 
 
 TODO
