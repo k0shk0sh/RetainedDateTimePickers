@@ -1,9 +1,11 @@
 package com.fastaccess.datetimepicker.sample;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.fastaccess.datetimepicker.DatePickerFragmentDialog;
@@ -17,26 +19,24 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 import static com.fastaccess.datetimepicker.sample.SampleHelper.getDateAndTime;
 import static com.fastaccess.datetimepicker.sample.SampleHelper.getDateOnly;
 import static com.fastaccess.datetimepicker.sample.SampleHelper.getTimeOnly;
 
-public class MainActivity extends AppCompatActivity implements DatePickerCallback, TimePickerCallback {
+/**
+ * Created by Kosh on 28 Sep 2016, 9:05 AM
+ */
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
+public class SampleFragment extends Fragment implements DatePickerCallback, TimePickerCallback {
+
+    @BindView(R.id.fromFragment) View fromFragment;
     @BindView(R.id.results) TextView results;
-
-
-    @Override protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
-    }
+    private Unbinder unbinder;
 
     @OnClick({R.id.datePickerOnly, R.id.datePickerMinMaxPicker, R.id.timePickerOnly,
-            R.id.dateAndTimePicker, R.id.ultimatePicker, R.id.timePickerOnly24Hours, R.id.fromFragment})
+            R.id.dateAndTimePicker, R.id.ultimatePicker, R.id.timePickerOnly24Hours})
     void onClick(View view) {
         Calendar minDate = Calendar.getInstance();
         minDate.set(2016, minDate.get(Calendar.MONTH), minDate.get(Calendar.DAY_OF_MONTH));
@@ -44,22 +44,22 @@ public class MainActivity extends AppCompatActivity implements DatePickerCallbac
         maxDate.set(2016, minDate.get(Calendar.MONTH) + 1, minDate.get(Calendar.DAY_OF_MONTH));
         switch (view.getId()) {
             case R.id.datePickerOnly:
-                DatePickerFragmentDialog.newInstance().show(getSupportFragmentManager(), "DatePickerFragmentDialog");
+                DatePickerFragmentDialog.newInstance().show(getChildFragmentManager(), "DatePickerFragmentDialog");
                 break;
             case R.id.datePickerMinMaxPicker:
                 DatePickerFragmentDialog.newInstance(DateTimeBuilder.get()
                         .withMinDate(minDate.getTimeInMillis())
                         .withMaxDate(maxDate.getTimeInMillis()))
-                        .show(getSupportFragmentManager(), "DatePickerFragmentDialog");
+                        .show(getChildFragmentManager(), "DatePickerFragmentDialog");
                 break;
             case R.id.timePickerOnly:
-                TimePickerFragmentDialog.newInstance().show(getSupportFragmentManager(), "TimePickerFragmentDialog");
+                TimePickerFragmentDialog.newInstance().show(getChildFragmentManager(), "TimePickerFragmentDialog");
                 break;
             case R.id.timePickerOnly24Hours:
-                TimePickerFragmentDialog.newInstance(true).show(getSupportFragmentManager(), "TimePickerFragmentDialog");
+                TimePickerFragmentDialog.newInstance(true).show(getChildFragmentManager(), "TimePickerFragmentDialog");
                 break;
             case R.id.dateAndTimePicker:
-                DatePickerFragmentDialog.newInstance(true).show(getSupportFragmentManager(), "DatePickerFragmentDialog");
+                DatePickerFragmentDialog.newInstance(true).show(getChildFragmentManager(), "DatePickerFragmentDialog");
                 break;
             case R.id.ultimatePicker:
                 Calendar currentDate = Calendar.getInstance();
@@ -73,15 +73,25 @@ public class MainActivity extends AppCompatActivity implements DatePickerCallbac
                         .withCurrentHour(12)
                         .withCurrentMinute(30)
                         .withTheme(R.style.PickersTheme))
-                        .show(getSupportFragmentManager(), "DatePickerFragmentDialog");
-                break;
-            case R.id.fromFragment:
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, new SampleFragment(), "SampleFragment")
-                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                        .commit();
+                        .show(getChildFragmentManager(), "DatePickerFragmentDialog");
                 break;
         }
+    }
+
+    @Nullable @Override public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.buttons_layout, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
+    }
+
+    @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        fromFragment.setVisibility(View.GONE);
+    }
+
+    @Override public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     @Override public void onDateSet(long date) {
@@ -91,6 +101,4 @@ public class MainActivity extends AppCompatActivity implements DatePickerCallbac
     @Override public void onTimeSet(long time, long date) {
         results.setText(String.format("Full Date: %s\nTime Only: %s", getDateAndTime(date), getTimeOnly(time)));
     }
-
-
 }

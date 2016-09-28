@@ -24,14 +24,19 @@ public class DatePickerFragmentDialog extends DialogFragment implements DatePick
 
     @Override public void onAttach(Context context) {
         super.onAttach(context);
-        if (!(context instanceof DatePickerCallback)) {
+        if (getParentFragment() != null && getParentFragment() instanceof DatePickerCallback) {
+            // priority to fragments.
+            callback = (DatePickerCallback) getParentFragment();
+        } else if (context instanceof DatePickerCallback) {
+            callback = (DatePickerCallback) context;
+        } else {
             throw new RuntimeException(String.format("%s must implement DatePickerCallback", context.getClass().getSimpleName()));
         }
-        callback = (DatePickerCallback) context;
     }
 
     @Override public void onDetach() {
         super.onDetach();
+        callback = null;
     }
 
     @NonNull @Override public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -89,6 +94,6 @@ public class DatePickerFragmentDialog extends DialogFragment implements DatePick
     }
 
     public static DatePickerFragmentDialog newInstance(boolean withTime) {
-        return newInstance(DateTimeBuilder.get().withWithTime(withTime));
+        return newInstance(DateTimeBuilder.get().witTime(withTime));
     }
 }

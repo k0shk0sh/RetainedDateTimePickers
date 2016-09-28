@@ -12,14 +12,14 @@ public class DateTimeBuilder implements Parcelable {
     private long minDate;
     private long maxDate;
     private boolean withTime;
-    private boolean is24Hours;
+    private boolean twentyFourTimeFormat;
     private long selectedDate;
-    private int setCurrentHour;
-    private int setCurrentMinute;
+    private int currentHour;
+    private int currentMinute;
     private int themeResId;
 
     public static DateTimeBuilder get() {
-        return new DateTimeBuilder();
+        return new DateTimeBuilder().withCurrentHour(-1).withCurrentMinute(-1);
     }
 
     public DateTimeBuilder withMinDate(long minDate) {
@@ -32,13 +32,13 @@ public class DateTimeBuilder implements Parcelable {
         return this;
     }
 
-    public DateTimeBuilder withWithTime(boolean withTime) {
+    public DateTimeBuilder witTime(boolean withTime) {
         this.withTime = withTime;
         return this;
     }
 
-    public DateTimeBuilder withIs24Hours(boolean is24Hours) {
-        this.is24Hours = is24Hours;
+    public DateTimeBuilder with24Hours(boolean is24Hours) {
+        this.twentyFourTimeFormat = is24Hours;
         return this;
     }
 
@@ -47,13 +47,13 @@ public class DateTimeBuilder implements Parcelable {
         return this;
     }
 
-    public DateTimeBuilder withSetCurrentHour(int setCurrentHour) {
-        this.setCurrentHour = setCurrentHour;
+    public DateTimeBuilder withCurrentHour(int setCurrentHour) {
+        this.currentHour = setCurrentHour;
         return this;
     }
 
-    public DateTimeBuilder withSetCurrentMinute(int setCurrentMinute) {
-        this.setCurrentMinute = setCurrentMinute;
+    public DateTimeBuilder withCurrentMinute(int setCurrentMinute) {
+        this.currentMinute = setCurrentMinute;
         return this;
     }
 
@@ -62,12 +62,12 @@ public class DateTimeBuilder implements Parcelable {
         return this;
     }
 
-    int getSetCurrentHour() {
-        return setCurrentHour;
+    int getCurrentHour() {
+        return currentHour;
     }
 
-    int getSetCurrentMinute() {
-        return setCurrentMinute;
+    int getCurrentMinute() {
+        return currentMinute;
     }
 
     long getMinDate() {
@@ -83,7 +83,7 @@ public class DateTimeBuilder implements Parcelable {
     }
 
     boolean is24Hours() {
-        return is24Hours;
+        return twentyFourTimeFormat;
     }
 
     long getSelectedDate() {
@@ -102,10 +102,10 @@ public class DateTimeBuilder implements Parcelable {
         dest.writeLong(this.minDate);
         dest.writeLong(this.maxDate);
         dest.writeByte(this.withTime ? (byte) 1 : (byte) 0);
-        dest.writeByte(this.is24Hours ? (byte) 1 : (byte) 0);
+        dest.writeByte(this.twentyFourTimeFormat ? (byte) 1 : (byte) 0);
         dest.writeLong(this.selectedDate);
-        dest.writeInt(this.setCurrentHour);
-        dest.writeInt(this.setCurrentMinute);
+        dest.writeInt(this.currentHour);
+        dest.writeInt(this.currentMinute);
         dest.writeInt(this.themeResId);
     }
 
@@ -113,10 +113,10 @@ public class DateTimeBuilder implements Parcelable {
         this.minDate = in.readLong();
         this.maxDate = in.readLong();
         this.withTime = in.readByte() != 0;
-        this.is24Hours = in.readByte() != 0;
+        this.twentyFourTimeFormat = in.readByte() != 0;
         this.selectedDate = in.readLong();
-        this.setCurrentHour = in.readInt();
-        this.setCurrentMinute = in.readInt();
+        this.currentHour = in.readInt();
+        this.currentMinute = in.readInt();
         this.themeResId = in.readInt();
     }
 

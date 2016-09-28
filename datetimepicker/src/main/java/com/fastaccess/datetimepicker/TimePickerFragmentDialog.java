@@ -27,14 +27,19 @@ public class TimePickerFragmentDialog extends DialogFragment implements TimePick
 
     @Override public void onAttach(Context context) {
         super.onAttach(context);
-        if (!(context instanceof TimePickerCallback)) {
+        // priority to fragments.
+        if (getParentFragment() != null && getParentFragment() instanceof TimePickerCallback) {
+            callback = (TimePickerCallback) getParentFragment();
+        } else if (context instanceof TimePickerCallback) {
+            callback = (TimePickerCallback) context;
+        } else {
             throw new RuntimeException(String.format("%s must implement TimePickerCallback", context.getClass().getSimpleName()));
         }
-        callback = (TimePickerCallback) context;
     }
 
     @Override public void onDetach() {
         super.onDetach();
+        callback = null;
     }
 
     @NonNull @Override public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -42,8 +47,8 @@ public class TimePickerFragmentDialog extends DialogFragment implements TimePick
         final Calendar calendar = Calendar.getInstance();
         TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), builder.getThemeResId(), this,
                 calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), builder.is24Hours());
-        if (builder.getSetCurrentHour() != 0 && builder.getSetCurrentMinute() != 0) {
-            timePickerDialog.updateTime(builder.getSetCurrentHour(), builder.getSetCurrentMinute());
+        if (builder.getCurrentHour() != -1 && builder.getCurrentMinute() != -1) {
+            timePickerDialog.updateTime(builder.getCurrentHour(), builder.getCurrentMinute());
         }
         return timePickerDialog;
     }
@@ -96,7 +101,7 @@ public class TimePickerFragmentDialog extends DialogFragment implements TimePick
     }
 
     public static TimePickerFragmentDialog newInstance(boolean is24Hours) {
-        return newInstance(0, DateTimeBuilder.get().withIs24Hours(is24Hours));
+        return newInstance(0, DateTimeBuilder.get().with24Hours(is24Hours));
     }
 
     public static TimePickerFragmentDialog newInstance() {

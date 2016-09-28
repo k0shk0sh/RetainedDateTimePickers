@@ -8,4 +8,5 @@
     <string name="date_picker_min_max"><![CDATA[Date Picker With Min & Max Date]]></string>
     <string name="date_time_picker_min_max"><![CDATA[Date & Time Picker With Custom Style, Pre-Selected Date & Time With Min & Max Date]]></string>
     <string name="time_picker_24hours_only">Time Only 24Hours</string>
+    <string name="from_fragment">From Fragment</string>
 </resources>
