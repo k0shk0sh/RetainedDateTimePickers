@@ -65,7 +65,7 @@ public class SampleFragment extends Fragment implements DatePickerCallback, Time
                 Calendar currentDate = Calendar.getInstance();
                 currentDate.set(2016, currentDate.get(Calendar.MONTH) + 1, currentDate.get(Calendar.DAY_OF_MONTH));
                 DatePickerFragmentDialog.newInstance(DateTimeBuilder.get()
-                        .witTime(true)
+                        .withTime(true)
                         .with24Hours(true)
                         .withSelectedDate(currentDate.getTimeInMillis())
                         .withMinDate(minDate.getTimeInMillis())

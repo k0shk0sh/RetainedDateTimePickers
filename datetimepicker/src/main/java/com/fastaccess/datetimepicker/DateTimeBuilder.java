@@ -32,7 +32,7 @@ public class DateTimeBuilder implements Parcelable {
         return this;
     }
 
-    public DateTimeBuilder witTime(boolean withTime) {
+    public DateTimeBuilder withTime(boolean withTime) {
         this.withTime = withTime;
         return this;
     }
