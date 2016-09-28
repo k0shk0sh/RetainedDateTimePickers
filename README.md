@@ -5,12 +5,17 @@ Android Library to help you with your date & time pickers while retaining the in
 
 #### Gradle
 ```groovy
-   'coming soon'
+compile 'com.github.k0shk0sh:RetainedDateTimePickers:1.0.0'
 ```
 
 #### Maven
 ```xml
-    <coming soon/>
+<dependency>
+  <groupId>com.github.k0shk0sh</groupId>
+  <artifactId>RetainedDateTimePickers</artifactId>
+  <version>1.0.0</version>
+  <type>aar</type>
+</dependency>
 ```
 
 Screenshots 
