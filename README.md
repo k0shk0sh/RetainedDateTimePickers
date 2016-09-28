@@ -54,7 +54,7 @@ DatePickerFragmentDialog.newInstance(true).show(getSupportFragmentManager(), "Da
 ```java
 DatePickerFragmentDialog.newInstance(
         DateTimeBuilder.get()
-                .witTime(true)
+                .withTime(true)
                 .with24Hours(true)
                 .withSelectedDate(currentDate.getTimeInMillis())
                 .withMinDate(minDate.getTimeInMillis())
