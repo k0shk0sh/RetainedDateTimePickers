@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.widget.DatePicker;
 
 import com.fastaccess.datetimepicker.callback.DatePickerCallback;
@@ -24,6 +26,7 @@ public class DatePickerFragmentDialog extends DialogFragment implements DatePick
 
     @Override public void onAttach(Context context) {
         super.onAttach(context);
+        Log.e("Context", context.getClass().getSimpleName());
         if (getParentFragment() != null && getParentFragment() instanceof DatePickerCallback) {
             // priority to fragments.
             callback = (DatePickerCallback) getParentFragment();
@@ -67,8 +70,14 @@ public class DatePickerFragmentDialog extends DialogFragment implements DatePick
         if (!builder.isWithTime()) {
             callback.onDateSet(date.getTimeInMillis());
         } else {
-            TimePickerFragmentDialog.newInstance(date.getTimeInMillis(), builder).show(getActivity().getSupportFragmentManager(),
-                    "TimePickerFragmentDialog");
+            FragmentManager fragmentManager;
+            if (getParentFragment() != null) {
+                fragmentManager = getParentFragment().getChildFragmentManager();
+            } else {
+                fragmentManager = getActivity().getSupportFragmentManager();
+            }
+            TimePickerFragmentDialog.newInstance(date.getTimeInMillis(), builder)
+                    .show(fragmentManager, "TimePickerFragmentDialog");
         }
         dismiss();
     }
