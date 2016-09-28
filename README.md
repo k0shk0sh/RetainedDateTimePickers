@@ -18,15 +18,6 @@ compile 'com.github.k0shk0sh:RetainedDateTimePickers:1.0.1'
 </dependency>
 ```
 
-Screenshots 
-======
-
-![DatePicker Portrait](https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/date_picker_portrait.png "DatePicker Portrait") ![DatePicker Landscape](https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/date_picker_land.png "DatePicker Landscape")
-
-![TimePicker Portrait](https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/time_picker_portrait.png "DatePicker Portrait") ![TimePicker Landscape](https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/time_picker_land.png "DatePicker Landscape")
-
-![DatePicker Custom Theme](https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/time_picker_portrait.png "DatePicker Custom Theme") ![TimePicker Custom Theme](https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/time_picker_land.png "TimePicker Custom Theme")
-
 Usage
 =====
 
@@ -70,6 +61,23 @@ DatePickerFragmentDialog.newInstance(
 
 
 > **To understand more how the library works, please take a look at the sample app.**
+
+
+Screenshots 
+======
+
+- **Pickers Portrait Mode**
+<br/>
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/date_picker_portrait.png" style="max-width:350px; max-height:350px;"/>
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/time_picker_portrait.png" style="max-width:350px; max-height:350px;"/>
+- **Pickers Landscape Mode**
+<br/>
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/date_picker_land.png" style="max-width:350px; max-height:350px;"/>
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/time_picker_land.png" style="max-width:350px; max-height:350px;"/>
+- **Pickers Custom Themes via Styles**
+<br/>
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/custom_theme_date.png" style="max-width:350px; max-height:350px;"/>
+<img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/custom_theme_time.png" style="max-width:350px; max-height:350px;"/>
 
 
 TODO
