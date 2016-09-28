@@ -64,15 +64,16 @@ public class MainActivity extends AppCompatActivity implements DatePickerCallbac
             case R.id.ultimatePicker:
                 Calendar currentDate = Calendar.getInstance();
                 currentDate.set(2016, currentDate.get(Calendar.MONTH) + 1, currentDate.get(Calendar.DAY_OF_MONTH));
-                DatePickerFragmentDialog.newInstance(DateTimeBuilder.get()
-                        .withTime(true)
-                        .with24Hours(true)
-                        .withSelectedDate(currentDate.getTimeInMillis())
-                        .withMinDate(minDate.getTimeInMillis())
-                        .withMaxDate(maxDate.getTimeInMillis())
-                        .withCurrentHour(12)
-                        .withCurrentMinute(30)
-                        .withTheme(R.style.PickersTheme))
+                DatePickerFragmentDialog.newInstance(
+                        DateTimeBuilder.get()
+                                .withTime(true)
+                                .with24Hours(true)
+                                .withSelectedDate(currentDate.getTimeInMillis())
+                                .withMinDate(minDate.getTimeInMillis())
+                                .withMaxDate(maxDate.getTimeInMillis())
+                                .withCurrentHour(12)
+                                .withCurrentMinute(30)
+                                .withTheme(R.style.PickersTheme))
                         .show(getSupportFragmentManager(), "DatePickerFragmentDialog");
                 break;
             case R.id.fromFragment:

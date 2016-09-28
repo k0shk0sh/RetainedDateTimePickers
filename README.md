@@ -48,15 +48,15 @@ DatePickerFragmentDialog.newInstance(true).show(getSupportFragmentManager(), "Da
 - Date & Time PickerDialog Customization
 ```java
 DatePickerFragmentDialog.newInstance(
-    DateTimeBuilder.get()
-        .witTime(true)
-        .with24Hours(true)
-        .withSelectedDate(currentDate.getTimeInMillis())
-        .withMinDate(minDate.getTimeInMillis())
-        .withMaxDate(maxDate.getTimeInMillis())
-        .withCurrentHour(12)
-        .withCurrentMinute(30)
-        .withTheme(R.style.PickersTheme))
+        DateTimeBuilder.get()
+                .witTime(true)
+                .with24Hours(true)
+                .withSelectedDate(currentDate.getTimeInMillis())
+                .withMinDate(minDate.getTimeInMillis())
+                .withMaxDate(maxDate.getTimeInMillis())
+                .withCurrentHour(12)
+                .withCurrentMinute(30)
+                .withTheme(R.style.PickersTheme))
         .show(getSupportFragmentManager(), "DatePickerFragmentDialog");
 ```
 
