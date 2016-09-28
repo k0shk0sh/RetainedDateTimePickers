@@ -105,6 +105,6 @@ public class TimePickerFragmentDialog extends DialogFragment implements TimePick
     }
 
     public static TimePickerFragmentDialog newInstance() {
-        return newInstance(0, new DateTimeBuilder());
+        return newInstance(0, DateTimeBuilder.get());
     }
 }

@@ -89,11 +89,11 @@ public class DatePickerFragmentDialog extends DialogFragment implements DatePick
         return dialog;
     }
 
-    public static DatePickerFragmentDialog newInstance() {
-        return newInstance(new DateTimeBuilder());
-    }
-
     public static DatePickerFragmentDialog newInstance(boolean withTime) {
         return newInstance(DateTimeBuilder.get().witTime(withTime));
+    }
+
+    public static DatePickerFragmentDialog newInstance() {
+        return newInstance(DateTimeBuilder.get());
     }
 }
