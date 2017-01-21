@@ -44,28 +44,28 @@ public class MainActivity extends AppCompatActivity implements DatePickerCallbac
         maxDate.set(2016, minDate.get(Calendar.MONTH) + 1, minDate.get(Calendar.DAY_OF_MONTH));
         switch (view.getId()) {
             case R.id.datePickerOnly:
-                DatePickerFragmentDialog.newInstance().show(getSupportFragmentManager(), "DatePickerFragmentDialog");
+                DatePickerFragmentDialog.newInstance().show(getSupportFragmentManager(), SampleHelper.DATE_PICKER_FRAGMENT_DIALOG);
                 break;
             case R.id.datePickerMinMaxPicker:
-                DatePickerFragmentDialog.newInstance(DateTimeBuilder.get()
+                DatePickerFragmentDialog.newInstance(DateTimeBuilder.newInstance()
                         .withMinDate(minDate.getTimeInMillis())
                         .withMaxDate(maxDate.getTimeInMillis()))
-                        .show(getSupportFragmentManager(), "DatePickerFragmentDialog");
+                        .show(getSupportFragmentManager(), SampleHelper.DATE_PICKER_FRAGMENT_DIALOG);
                 break;
             case R.id.timePickerOnly:
-                TimePickerFragmentDialog.newInstance().show(getSupportFragmentManager(), "TimePickerFragmentDialog");
+                TimePickerFragmentDialog.newInstance().show(getSupportFragmentManager(), SampleHelper.TIME_PICKER_FRAGMENT_DIALOG);
                 break;
             case R.id.timePickerOnly24Hours:
-                TimePickerFragmentDialog.newInstance(true).show(getSupportFragmentManager(), "TimePickerFragmentDialog");
+                TimePickerFragmentDialog.newInstance(true).show(getSupportFragmentManager(), SampleHelper.TIME_PICKER_FRAGMENT_DIALOG);
                 break;
             case R.id.dateAndTimePicker:
-                DatePickerFragmentDialog.newInstance(true).show(getSupportFragmentManager(), "DatePickerFragmentDialog");
+                DatePickerFragmentDialog.newInstance(true).show(getSupportFragmentManager(), SampleHelper.DATE_PICKER_FRAGMENT_DIALOG);
                 break;
             case R.id.ultimatePicker:
                 Calendar currentDate = Calendar.getInstance();
                 currentDate.set(2016, currentDate.get(Calendar.MONTH) + 1, currentDate.get(Calendar.DAY_OF_MONTH));
                 DatePickerFragmentDialog.newInstance(
-                        DateTimeBuilder.get()
+                        DateTimeBuilder.newInstance()
                                 .withTime(true)
                                 .with24Hours(true)
                                 .withSelectedDate(currentDate.getTimeInMillis())
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerCallbac
                                 .withCurrentHour(12)
                                 .withCurrentMinute(30)
                                 .withTheme(R.style.PickersTheme))
-                        .show(getSupportFragmentManager(), "DatePickerFragmentDialog");
+                        .show(getSupportFragmentManager(), SampleHelper.DATE_PICKER_FRAGMENT_DIALOG);
                 break;
             case R.id.fromFragment:
                 getSupportFragmentManager().beginTransaction()

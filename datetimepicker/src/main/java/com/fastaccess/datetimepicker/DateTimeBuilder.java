@@ -18,7 +18,16 @@ public class DateTimeBuilder implements Parcelable {
     private int currentMinute;
     private int themeResId;
 
+    /**
+     * Use newInstance instead for naming convention
+     * return new Instance
+     */
+    @Deprecated
     public static DateTimeBuilder get() {
+        return newInstance();
+    }
+
+    public static DateTimeBuilder newInstance() {
         return new DateTimeBuilder().withCurrentHour(-1).withCurrentMinute(-1);
     }
 

@@ -5,7 +5,7 @@ Android Library to help you with your date & time pickers while retaining the in
 
 #### Gradle
 ```groovy
-compile 'com.github.k0shk0sh:RetainedDateTimePickers:1.0.1'
+compile 'com.github.k0shk0sh:RetainedDateTimePickers:1.0.2'
 ```
 
 #### Maven
@@ -13,7 +13,7 @@ compile 'com.github.k0shk0sh:RetainedDateTimePickers:1.0.1'
 <dependency>
   <groupId>com.github.k0shk0sh</groupId>
   <artifactId>RetainedDateTimePickers</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <type>aar</type>
 </dependency>
 ```
@@ -79,11 +79,6 @@ Screenshots
 <img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/custom_theme_date.png" width="250" height="444" />
 <img src="https://raw.github.com/k0shk0sh/RetainedDateTimePickers/master/art/custom_theme_time.png" width="250" height="444" />
 
-
-TODO
-=====
-
-- ~~To supports `ParentFragment` (very soon).~~
 
 # Why this library?
 
